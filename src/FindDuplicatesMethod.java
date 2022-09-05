@@ -12,14 +12,15 @@ Result: false
 Дубликатов нет
 */
 
+import java.util.TreeSet;
+
 public class FindDuplicatesMethod {
 
     public static boolean findDuplicates(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] == array[j]) {
-                    return true;
-                }
+        TreeSet<Integer> ts = new TreeSet<>();
+        for (int j : array) {
+            if (!ts.add(j)) {
+                return true;
             }
         }
         return false;

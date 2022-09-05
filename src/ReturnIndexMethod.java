@@ -11,18 +11,23 @@ result = [1,2]
 
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 
 public class ReturnIndexMethod {
 
     public static ArrayList<Integer> returnIndexes(int number, int[] array) {
+
         ArrayList<Integer> indexes = new ArrayList<>();
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] + array[j] == number) {
-                    indexes.add(i);
-                    indexes.add(j);
-                }
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            tm.put(i, array[i]);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (tm.containsValue(number - tm.get(i))) {
+                indexes.add(i);
             }
         }
         return indexes;
