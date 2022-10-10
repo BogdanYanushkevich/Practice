@@ -3,8 +3,6 @@ package Multithreading;
 public class Main {
     public static void main(String[] args) {
         Foo foo = new Foo();
-        Foo foo1 = new Foo();
-        Foo foo2 = new Foo();
 
         Thread A = new Thread(() -> {
             try {
